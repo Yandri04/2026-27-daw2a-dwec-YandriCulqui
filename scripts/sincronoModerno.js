@@ -1,0 +1,1 @@
+console.log("Sincrono moderno ejecutandose a la vez que la carga del HTML")
