@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACTIVIDAD_07</title>
+</head>
+<body>
+    <script> 
+        let val1 = prompt("Dime una palabra: ") ;
+        
+    
+        if(val1.length >1 ){
+            val1 = prompt("Vuelve a decirme UNA PALBRA: ") ;
+        }
+
+        val1 = val1.toLowerCase();
+        console.log(val1);
+
+        function esVocal(letra) {
+                if ("aeiou".includes(letra)) {
+                alert('Tu palabra  es una vocal');
+                return true;
+                }else{
+                    alert('Tu palabra no es una vocal');
+                return false;
+                }
+        }
+        
+        esVocal(val1);
+
+    
+ 
+    </script>
+    
+</body>
+</html>

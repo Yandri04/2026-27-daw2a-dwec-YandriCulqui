@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACTIVIDAD_09</title>
+</head>
+<body>
+    <script> 
+        let val1 = parseInt(prompt("Dime una numero: ") );
+        
+    
+        while(val1 === null || val1 <= 0  ){
+            val1 = prompt("Vuelve a decirme un  numero: ") ;
+        }
+
+        function iteracionParOImpart(num) {
+            
+            for (let i = 0; i <= num; i++) {
+                if(i % 2 == 0){
+                    console.log(i + " Es par")
+                }else{
+                    console.log(i + " Es impar")
+                }
+            }
+        
+        }
+       iteracionParOImpart(val1);
+
+    </script>
+    
+</body>
+</html>

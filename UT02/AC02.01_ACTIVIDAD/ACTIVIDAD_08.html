@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACTIVIDAD_08</title>
+</head>
+<body>
+    <script> 
+        let val1 = parseInt(prompt("Dime una numero: ") );
+        
+    
+        while(val1 === null || val1 <= 0  ){
+            val1 = prompt("Vuelve a decirme un  numero: ") ;
+        }
+
+        function factorial(num) {
+            let facto = 1;
+            for (let i = 1; i <= num; i++) {
+             facto *= i;
+            }
+            return facto;
+        }
+        
+        alert(factorial(val1));
+
+    </script>
+    
+</body>
+</html>
