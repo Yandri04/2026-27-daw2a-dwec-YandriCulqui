@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ej_03</title>
+  </head>
+  <body>
+    <script>
+      function cadenaResultante(ca1, ca2, pPrimeraCadena) {
+        let ca1Pro = ca1.substr(pPrimeraCadena);
+        let ca2Pro = ca2.substr(pPrimeraCadena);
+        let txt = "";
+        return (txt =
+          "Cadena 1 proporcionada a indice " +
+          pPrimeraCadena +
+          " : " +
+          ca1Pro +
+          "\n" +
+          "Cadena 2 proporcionada a indice " +
+          pPrimeraCadena +
+          " : " +
+          ca2Pro +
+          "\n" +
+          "Resultado cadena = " +
+          ca1Pro +
+          ca2Pro);
+        let cadena1 = prompt("Inserta una cadena");
+        let cadena2 = prompt("Inserta una segunda cadena");
+        let posicion = prompt(
+          "Inserta una posicion de la cadena 1 a proporcionar",
+        );
+      }
+      if (
+        !isNaN(cadena1) ||
+        !isNaN(cadena2) ||
+        cadena1.length < 0 ||
+        cadena2.length < 0
+      ) {
+        alert("Error en las cadenas o en la posicion, ingreselas nuevamente");
+      } else {
+        alert(cadenaResultante(cadena1, cadena2, posicion));
+      }
+    </script>
+  </body>
+</html>
