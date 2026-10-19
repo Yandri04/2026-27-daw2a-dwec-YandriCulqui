@@ -1,13 +1,4 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>actej_01</title>
-  </head>
-  <body>
-    <script>
-      let base = parseFloat(prompt("Introduce la base del del triangulo"));
+ let base = parseFloat(prompt("Introduce la base del del triangulo"));
       let altura = parseFloat(prompt("Introduce la altura del del triangulo"));
 
       if (isNaN(base) || isNaN(altura) || base <= 0 || altura <= 0) {
@@ -24,6 +15,3 @@
             area,
         );
       }
-    </script>
-  </body>
-</html>

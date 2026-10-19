@@ -1,15 +1,6 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ej_03</title>
-  </head>
-  <body>
-    <script>
-      function cadenaResultante(ca1, ca2, pPrimeraCadena) {
+ function cadenaResultante(ca1, ca2, pPrimeraCadena) {
         let ca1Pro = ca1.substr(pPrimeraCadena);
-        let ca2Pro = ca2.substr(pPrimeraCadena);
+        let ca2Pro = ca2;
         let txt = "";
         return (txt =
           "Cadena 1 proporcionada a indice " +
@@ -25,12 +16,12 @@
           "Resultado cadena = " +
           ca1Pro +
           ca2Pro);
-        let cadena1 = prompt("Inserta una cadena");
-        let cadena2 = prompt("Inserta una segunda cadena");
-        let posicion = prompt(
-          "Inserta una posicion de la cadena 1 a proporcionar",
-        );
       }
+      let cadena1 = prompt("Inserta una cadena");
+      let cadena2 = prompt("Inserta una segunda cadena");
+      let posicion = prompt(
+        "Inserta una posicion de la cadena 1 a proporcionar",
+      );
       if (
         !isNaN(cadena1) ||
         !isNaN(cadena2) ||
@@ -41,6 +32,3 @@
       } else {
         alert(cadenaResultante(cadena1, cadena2, posicion));
       }
-    </script>
-  </body>
-</html>

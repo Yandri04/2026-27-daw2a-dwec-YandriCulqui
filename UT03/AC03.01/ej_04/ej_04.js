@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ej_04</title>
-</head>
-<body>
-    <script>
 
         //JS NO LANZA UN ERROR LO QUE HACE ES AL DETECTAR QUE SE VA FUERA DEL RANGO DE DIAS, LOS VALORES LOS DIAS O MESES LO VA SUMAS AL SIGUIENTE PERIODO DE TIEMPO
         // es decir si poner el Date(2000, 1, 33) procesa que febrero tiene 29 dias como no contempla el 30-31-32-33  como 01-02-03-04 del mes siguiente conviertiendo esos valores a dias del mes siguiente 
@@ -27,7 +18,3 @@
 
         //Fecha de 30 del mes 25 2000:Sat Mar 02 2002 00:00:00 
         alert("Fecha de 30 del mes 25 2000:"+new Date(2000, 25, 30));
-
-    </script>
-</body>
-</html>
