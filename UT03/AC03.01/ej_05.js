@@ -92,3 +92,8 @@ let porcion3 = mensajecorte.substring(1, 8);
 let mensajecompleto = "hola mundo, soy una cadena de texto!";
 // .split(' ') divide el texto en una lista cada vez que encuentra un espacio.
 let palabras = mensajecompleto.split(" ");
+
+
+
+// Ambas variables apuntan exactamente al mismo objeto en memoria
+console.log(config1 === config2); // true
