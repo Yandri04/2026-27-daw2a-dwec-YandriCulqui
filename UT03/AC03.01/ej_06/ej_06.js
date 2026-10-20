@@ -1,14 +1,14 @@
-// 1. Obtener la fecha actual
+//  Obtener la fecha actual
 let hoy = new Date();
 
-// 2. Restar un día
+//  Restar un día
 let ayer = new Date(hoy.getTime() - 24 * 60 * 60 * 1000);
 
-// 3. Formatear la fecha según la configuración local del sistema
+//  Formatear la fecha según la configuración local del sistema
 let ayerFormateada = ayer.toLocaleDateString();
 let hoyFormateada = hoy.toLocaleDateString();
 
-// 4. Mostrar el resultado por consola y en un alert
+//. Mostrar el resultado por consola y en un alert
 console.log("La fecha de ayer fue: ", ayerFormateada);
 alert(
   "Fecha actual " +
@@ -17,5 +17,3 @@ alert(
     "La fecha de ayer fue:" +
     ayerFormateada,
 );
-
-

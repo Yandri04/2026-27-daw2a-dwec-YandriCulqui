@@ -33,19 +33,19 @@ alert(numero3 / numero4);
 let numerobase = 4564.34567;
 
 // .tofixed(x) define cuantos digitos decimales queremos. redondea y devuelve un string:
-numerobase.toFixed(2); 
+numerobase.toFixed(2);
 // resultado: "4564.35"
-numerobase.toFixed(6); 
+numerobase.toFixed(6);
 // resultado: "4564.345670"
-numerobase.toFixed(); 
+numerobase.toFixed();
 // resultado: "4564"
 
 // .toprecision(x) define la cantidad total de digitos significativos (enteros + decimales):
-numerobase.toPrecision(2); 
+numerobase.toPrecision(2);
 // resultado: "4.6e+3"
-numerobase.toPrecision(6); 
+numerobase.toPrecision(6);
 // resultado: "4564.35"
-numerobase.toPrecision(); 
+numerobase.toPrecision();
 // resultado: "4564.34567"
 
 let mensaje = "hola mundo";
@@ -67,33 +67,31 @@ let mensajemayusculas = mensajeoriginal.toUpperCase();
 
 let mensajeletras = "hola";
 // .charat obtiene el caracter en ese indice .
-let letra1 = mensajeletras.charAt(0); 
+let letra1 = mensajeletras.charAt(0);
 // resultado: "h"
-let letra2 = mensajeletras.charAt(2); 
+let letra2 = mensajeletras.charAt(2);
 // resultado: "l"
 
 let mensajebusqueda = "hola";
 // .indexof() busca la primera posicion de un caracter. la 'a' esta en la posicion 3.
-let posiciona = mensajebusqueda.indexOf("a"); 
+let posiciona = mensajebusqueda.indexOf("a");
 // resultado: 3
 // .lastindexof() busca la ultima posicion. si no existe el caracter, devuelve -1.
-let posicionb = mensajebusqueda.lastIndexOf("b"); 
+let posicionb = mensajebusqueda.lastIndexOf("b");
 // resultado: -1
 
 let mensajecorte = "hola mundo";
 // .substring extrae un pedazo del texto.
-let porcion1 = mensajecorte.substring(2); 
+let porcion1 = mensajecorte.substring(2);
 // resultado: "la mundo"
-let porcion2 = mensajecorte.substring(-2); 
+let porcion2 = mensajecorte.substring(-2);
 // resultado: "hola mundo" (el negativo se convierte en 0)
-let porcion3 = mensajecorte.substring(1, 8); 
+let porcion3 = mensajecorte.substring(1, 8);
 // resultado: "ola mun"
 
 let mensajecompleto = "hola mundo, soy una cadena de texto!";
 // .split(' ') divide el texto en una lista cada vez que encuentra un espacio.
 let palabras = mensajecompleto.split(" ");
-
-
 
 // Ambas variables apuntan exactamente al mismo objeto en memoria
 console.log(config1 === config2); // true
