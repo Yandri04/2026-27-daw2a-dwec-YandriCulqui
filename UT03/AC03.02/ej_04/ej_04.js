@@ -61,5 +61,3 @@ for (let index = 0; index < aCiyTemp.length; index++) {
   // se deja en 0 las temperaturas medias para volver a sumar los valore sintegros de la siuiente filla del array
   temMedia = 0;
 }
-
-
