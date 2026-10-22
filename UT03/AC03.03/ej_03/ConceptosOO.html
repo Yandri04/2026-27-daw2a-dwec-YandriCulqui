@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+  <head>
+    <title>OOB</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+  <body>
+    <div id="div5"></div>
+    <script>
+      // Concepto de Abstracción y Encapsulamiento:
+      // Definimos la clase base con sus métodos de acceso seguro (Getters y Setters)
+      class superClase {
+        constructor(argumento) {
+          this.propiedad = argumento;
+        }
+
+        //Permite leer el valor interno de la propiedad de forma controlada
+        get prop() {
+          return this.propiedad;
+        }
+        //Permite modificar el valor interno aplicando lógica si fuera necesario
+        set prop(x) {
+          this.propiedad = x;
+        }
+      }
+
+      // Concepto de Herencia y Polimorfismo:
+      // subClase copia la estructura de superClase y añade sus propios atributos
+      class subClase extends superClase {
+        constructor(argumento1, argumento2) {
+          // super pasa el argumento requerido por la clase padre para que se ejecute primero
+          super(argumento1);
+          // Después asignamos el atributo específico exclusivo de esta subclase
+          this.atributo = argumento2;
+        }
+
+        get atrib() {
+          return this.atributo;
+        }
+        set atrib(z) {
+          this.atributo = z;
+        }
+
+        // Método que combina datos del padre y del hijo para devolverlos juntos
+        show() {
+          return this.prop + ", y " + this.atrib;
+        }
+      }
+
+      // Instanciación: Creamos un objeto concreto a partir del plano que define la subclase
+      let objetoSub = new subClase('"VALOR-SUPER"', '"VALOR-SUB"');
+
+      // Concepto de Verificación de Tipos:
+      // El operador instanceof comprueba si el objeto pertenece o hereda de superClase (devuelve true)
+      cad =
+        "Es objetoSub una instancia de superClase: " +
+        (objetoSub instanceof superClase) +
+        "<br />";
+
+      // Concatenación de datos llamando a los getters y al método del objeto
+      cad +=
+        "¿Tiene objetoSub la propiedad 'propiedad'?: " +
+        objetoSub.prop +
+        "<br />" +
+        "En la propiedad 'atributo' tenemos el valor: " +
+        objetoSub.atributo +
+        "<br />" +
+        "y también podemos mostrar: " +
+        objetoSub.show() +
+        "<br />";
+
+      //Buscamos el div por su ID e insertamos toda la cadena de texto estructurada
+      document.getElementById("div5").innerHTML = cad;
+    </script>
+  </body>
+</html>
