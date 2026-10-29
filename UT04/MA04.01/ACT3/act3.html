@@ -8,19 +8,21 @@
   <body>
     <form action="">
       <fieldset>
-        <legend>ACT2</legend>
+        <legend>ACT3</legend>
         <label for="citys">Seleccione una Ciudad</label>
         <select name="citys" id="citys">
-          <option value="pamplona">pamplona</option>
-          <option value="barcelona">barcelona</option>
-          <option value="valencia">valencia</option>
-          <option value="sevilla">sevilla</option>
+          <option value="pamplona">Ciudad 1</option>
+          <option value="barcelona">Ciudad 2</option>
+          <option value="valencia">Ciudad 3</option>
+          <option value="sevilla">Ciudad 4</option>
         </select>
+        <br />
+        <br />
+        <button onclick="setearCampoVacio(event)">Enviar</button>
         <br />
         <br />
         <label for="campo">Donde se pondra la ciudad</label>
         <input type="text" id="campo" name="campo" />
-        <button onclick="setearCampoVacio(event)">Enviar</button>
       </fieldset>
     </form>
 
@@ -28,8 +30,7 @@
       function setearCampoVacio(event) {
         event.preventDefault();
         let ciudad = document.getElementById("citys").value;
-        let campo = document.getElementById("campo");
-        campo.value = ciudad;
+        document.getElementById("campo").value = ciudad;
       }
     </script>
   </body>
