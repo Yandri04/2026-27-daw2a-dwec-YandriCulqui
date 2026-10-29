@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ej3</title>
+  </head>
+  <body>
+    <form action="">
+      <fieldset>
+        <legend>ACT2</legend>
+        <label for="citys">Seleccione una Ciudad</label>
+        <select name="citys" id="citys">
+          <option value="pamplona">pamplona</option>
+          <option value="barcelona">barcelona</option>
+          <option value="valencia">valencia</option>
+          <option value="sevilla">sevilla</option>
+        </select>
+        <br />
+        <br />
+        <label for="campo">Donde se pondra la ciudad</label>
+        <input type="text" id="campo" name="campo" />
+        <button onclick="setearCampoVacio(event)">Enviar</button>
+      </fieldset>
+    </form>
+
+    <script>
+      function setearCampoVacio(event) {
+        event.preventDefault();
+        let ciudad = document.getElementById("citys").value;
+        let campo = document.getElementById("campo");
+        campo.value = ciudad;
+      }
+    </script>
+  </body>
+</html>
