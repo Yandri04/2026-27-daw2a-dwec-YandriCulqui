@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ej_01</title>
+  </head>
+
+  <body>
+    <form action="">
+      <fieldset>
+        <legend>ACT1</legend>
+        <label for="nombre">Ingrese una palabra</label>
+        <input type="text" id="nombre" name="nombre" />
+        <br />
+        <button onclick="gestionaNombre()">Enviar</button>
+        <button onclick="cambioValor()">Cambio de valor mediante prompt</button>
+      </fieldset>
+    </form>
+
+    <script>
+      let palabra = document.getElementById("nombre").value;
+
+      function cambioValor() {
+        let pSustituta = prompt(
+          `Palabra actual: ${palabra} \n ingresa la palabra que sustituya a la actual`,
+        );
+        pSustituta = pSustituta.trim();
+        if (
+          pSustituta === null ||
+          !isNaN(pSustituta) ||
+          pSustituta.trim() === ""
+        ) {
+          alert("ERROR AL GESTIONAR LA PALABRA");
+        } else {
+          document.getElementById("nombre").value = pSustituta;
+        }
+      }
+    </script>
+  </body>
+  <script src="acti1.js"></script>
+</html>

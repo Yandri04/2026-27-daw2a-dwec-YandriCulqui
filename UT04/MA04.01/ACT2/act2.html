@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ej2</title>
+  </head>
+  <body>
+    <form action="">
+      <fieldset>
+        <legend>ACT2</legend>
+        <label for="se-color">Seleccione un color</label>
+        <select name="colores" id="se-color">
+          <option value="rojo">rojo</option>
+          <option value="azul">azul</option>
+          <option value="amarillo">amarillo</option>
+        </select>
+        <button onclick="gestionaColores()">Enviar</button>
+      </fieldset>
+    </form>
+
+    <script>
+      function gestionaColores() {
+        let color = document.getElementById("se-color").value;
+        alert(`tu color es ${color}`);
+      }
+    </script>
+  </body>
+</html>
