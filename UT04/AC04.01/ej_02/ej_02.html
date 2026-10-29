@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ej_02</title>
+  </head>
+  <body>
+    <h1>Reloj Digital</h1>
+    <h3>La hora se actualiza</h3>
+    <div>
+      <p id="reloj" name="reloj"></p>
+    </div>
+
+    <script>
+      // OBTENGO LA REFERENCIA DEL RELOJ
+      const contenedorReloj = document.getElementById("reloj");
+
+      function actualizarReloj() {
+        // OBTENGO LA FECHA ACTUAL
+        const fechaActual = new Date();
+        // CATEOS A STRINE STA FECHA Y QUE EMPIECE POR CERO HASTA QUE SEA DOS DIGITOS
+        const h = String(fechaActual.getHours()).padStart(2, "0");
+        const m = String(fechaActual.getMinutes()).padStart(2, "0");
+        const s = String(fechaActual.getSeconds()).padStart(2, "0");
+        // INGRESO POR INNER TEXT EL VALOR DEL P
+        contenedorReloj.innerText = `${h}:${m}:${s}`;
+      }
+      // PARA QUE NO INICIE VACIO EJCUTO UNA VEZ LA FUNCION
+      actualizarReloj();
+      // Y CREO EL NTERVALO DE EJECUCION
+      const intervaloReloj = setInterval(actualizarReloj, 1000);
+    </script>
+  </body>
+</html>
