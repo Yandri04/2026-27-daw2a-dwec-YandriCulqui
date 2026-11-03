@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Nueva ventana</title>
+  </head>
+  <body>
+    <form id="formulario2">
+      <input
+        type="text"
+        size="100"
+        id="datos"
+        value="Escribe lo que quieras pasar a la ventana principal"
+      />
+    </form>
+    <script>
+      //El código estaría en un archivo .js
+      //No pongo cogeDatos() que es una invocación a la función, sólo paso el nombre
+      window.onload = cogeDatos;
+      function cogeDatos() {
+        window.document.getElementById("datos").value =
+          window.opener.document.getElementById("resultado").value;
+      }
+    </script>
+  </body>
+</html>

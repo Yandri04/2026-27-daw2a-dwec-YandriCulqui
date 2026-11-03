@@ -1,0 +1,47 @@
+<!doctype html>
+<!--
+  ~ Copyright (C) Laura 2017
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  ~
+  -->
+
+<html>
+  <head>
+    <title>Ejemplo de Ventana Principal pasa a secundaria</title>
+  </head>
+  <body>
+    <form id="formulario1">
+      <input
+        type="text"
+        size="100"
+        id="resultado"
+        value="Comunicando ventanas"
+      /><br />
+      <input type="Button" value="Pasa Datos" onclick="pasaDatos()" />
+    </form>
+    <script>
+      //Este código debe estar en un archivo .js separado e incluido en el tag script con async
+      function pasaDatos() {
+        //No hace falta la variable, es para aprender lo que no podemos hacer
+        let ventanaSecundaria = window.open(
+          "ComunicacionVentanasB2.html",
+          "ventana",
+        );
+        //El documento de la nueva ventana no está cargado, no puedo poner aquí líneas de código como:
+        //ventanaSecundaria.document.getElementById("datos").value= ... ;
+      }
+    </script>
+  </body>
+</html>
