@@ -17,8 +17,8 @@
       //No pongo cogeDatos() que es una invocación a la función, sólo paso el nombre
       window.onload = cogeDatos;
       function cogeDatos() {
-        window.document.getElementById("datos").value =
-          window.opener.document.getElementById("resultado").value;
+        window.opener.document.getElementById("resultado").value =
+          window.document.getElementById("colores").value;
       }
     </script>
   </body>
