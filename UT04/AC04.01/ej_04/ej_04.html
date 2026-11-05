@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ej4</title>
+  </head>
+  <body>
+    <h1>Calculadora</h1>
+    <table
+      style="
+        border: 1px black solid;
+        text-align: center;
+        box-sizing: border-box;
+      "
+    >
+      <tr>
+        <td colspan="4"><input id="inResult" type="text" /></td>
+      </tr>
+      <tr>
+        <td><button class="num" value="9">9</button></td>
+        <td><button class="num" value="8">8</button></td>
+        <td><button class="num" value="7">7</button></td>
+        <td><button class="operacion" value="/">/</button></td>
+      </tr>
+      <tr>
+        <td><button class="num" value="6">6</button></td>
+        <td><button class="num" value="5">5</button></td>
+        <td><button class="num" value="4">4</button></td>
+        <td><button class="operacion" value="*">*</button></td>
+      </tr>
+      <tr>
+        <td><button class="num" value="3">3</button></td>
+        <td><button class="num" value="2">2</button></td>
+        <td><button class="num" value="1">1</button></td>
+        <td><button class="operacion" value="-">-</button></td>
+      </tr>
+      <tr>
+        <td><button class="num" value="0">0</button></td>
+        <td><button class="operacion" value="clear">C</button></td>
+        <td><button id="RESULTADO" value="total">=</button></td>
+        <td><button class="operacion" value="+">+</button></td>
+      </tr>
+    </table>
+    <script>
+      // obtengo los botones html y los meto en un array
+      const botonesNum = document.getElementsByClassName("num");
+      const aBotones = Array.from(botonesNum);
+      // obtengo los botones de operacion html y los meto en un array
+      const botonesOperacion = document.getElementsByClassName("operacion");
+      const aOperacion = Array.from(botonesOperacion);
+
+      const input = document.getElementById("inResult");
+      let aux = 0;
+
+      aBotones.forEach((botones) => {
+        botones.addEventListener("click", function (event) {
+          console.log("pulsado: " + this.value);
+          input.value += this.value;
+        });
+      });
+
+      aOperacion.forEach((operaciones) => {
+        operaciones.addEventListener("click", function (event) {
+          console.log("operacion Seleccionadas: " + this.value);
+          if (this.value != "total" || this.value != "=") {
+            aux = parseFloat(input.value);
+            input.value = "";
+          } else {
+            switch (this.value) {
+              case "+":
+                input.value = aux + parseFloat(input.value);
+                break;
+              case "-":
+                input.value = aux - parseFloat(input.value);
+                break;
+              case "*":
+                input.value = aux * parseFloat(input.value);
+                break;
+              case "/":
+                input.value = aux / parseFloat(input.value);
+                break;
+              case "C":
+                input.value = " ";
+                break;
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
