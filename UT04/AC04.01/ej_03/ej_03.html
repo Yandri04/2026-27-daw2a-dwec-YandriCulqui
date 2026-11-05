@@ -3,40 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ej_03</title>
-  </head>
-
-  <body>
-    <form action="">
-      <fieldset>
-        <legend>EJ3</legend>
-        <label for="nombre">Ingrese una palabra</label>
-        <input type="text" id="nombre" name="nombre" />
-        <br />
-        <button onclick="gestionaNombre()">Enviar</button>
-        <button onclick="cambioValor()">Cambio de valor mediante prompt</button>
-      </fieldset>
-    </form>
-
+    <title>ej3</title>
+    <h1>Cmabiar imganes</h1>
+    <p>Pulsa el boton para alternar entre las dos imagenes</p>
+    <img src="bombilla_off.gif" alt="apagado" id="bombilla" />
+    <button id="interruptor" class="interruptor">Interruptor</button>
     <script>
-      let palabra = document.getElementById("nombre").value;
-
-      function cambioValor() {
-        let pSustituta = prompt(
-          `Palabra actual: ${palabra} \n ingresa la palabra que sustituya a la actual`,
-        );
-        pSustituta = pSustituta.trim();
-        if (
-          pSustituta === null ||
-          !isNaN(pSustituta) ||
-          pSustituta.trim() === ""
-        ) {
-          alert("ERROR AL GESTIONAR LA PALABRA");
+      const boton = document.getElementById("interruptor");
+      boton.addEventListener("click", (event) => {
+        imagen = document.getElementById("bombilla");
+        if (imagen.src.includes("bombilla_off.gif")) {
+          imagen.src = "bombilla_on.gif";
+          imagen.alt = "encendido";
         } else {
-          document.getElementById("nombre").value = pSustituta;
+          imagen.src = "bombilla_off.gif";
+          imagen.alt = "apagado";
         }
-      }
+      });
     </script>
-  </body>
-  <script src="acti1.js"></script>
+  </head>
+  <body></body>
 </html>
