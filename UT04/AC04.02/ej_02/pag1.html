@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pagina1</title>
+  </head>
+  <body>
+    <form id="formulario">
+      <h1>PALABRAS</h1>
+      <textarea name="palabras" id="palabras"></textarea>
+      <br />
+      <br />
+      <button type="button" id="Enviar">Enviar</button>
+    </form>
+    <script>
+      let bt = document.getElementById("Enviar");
+      bt.addEventListener("click", () => {
+        window.open("pag2.html", "Ventana");
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pag2</title>
+  </head>
+  <body>
+    <p>Primera Palabra</p>
+    <p id="pPalabra"></p>
+    <p>Ultima Palabra</p>
+    <p id="uPalabra"></p>
+    <p>Numero de palabras</p>
+    <p id="nPalabra"></p>
+    <p>Ordenamiento de palabras</p>
+    <p id="palabrasOrdenadas"></p>
+
+    <script>
+      if (window.opener) {
+        let textoOriginal =
+          window.opener.document.getElementById("palabras").value;
+
+        let arrayPalabras = textoOriginal.trim().split(/\s+/);
+
+        if (arrayPalabras.length > 0) {
+          document.getElementById("pPalabra").textContent = arrayPalabras[0];
+          document.getElementById("uPalabra").textContent =
+            arrayPalabras[arrayPalabras.length - 1];
+          document.getElementById("nPalabra").textContent =
+            arrayPalabras.length;
+
+          let ordenadas = [...arrayPalabras].sort();
+          document.getElementById("palabrasOrdenadas").textContent =
+            ordenadas.join(" - ");
+        } else {
+          document.getElementById("nPalabra").textContent =
+            "No ingresaste palabras.";
+        }
+      }
+    </script>
+  </body>
+</html>
