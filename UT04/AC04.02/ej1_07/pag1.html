@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>
+      EJERCIO 7: RESCALAMIENTO DE LA VENTA Y COMPROBACION DEL FUNCIONAMIENTO EN
+      DISTINTOS NAVEGADORES
+    </h1>
+    <br />
+    <br />
+    <button id="b1">Ventana Nueva</button>
+    <button id="b2">rizeTo en principal</button>
+    <button id="b3">rizeTo en Secundaria</button>
+    <script>
+      // SE CREA UNA VENTANA NUEVA DEBIDO A QUE LOS NAVEGADORE SPOR DEFECTOS NO PERMITES MODIFICAR ESTE ATRIBUTO DIRECTAMENTE
+      //DEBIDO A CONFIGURACIONES DE SEGURIDAD
+
+      let miVentana;
+      const b1 = document.getElementById("b1");
+      b1.addEventListener("click", () => {
+        miVentana = window.open("", "", "width=200, height=200");
+      });
+      const b3 = document.getElementById("b2");
+      b3.addEventListener("click", () => {
+        window.resizeTo(500, 500);
+      });
+      const b2 = document.getElementById("b3");
+      b2.addEventListener("click", () => {
+        miVentana.resizeTo(500, 500);
+      });
+    </script>
+  </body>
+</html>
