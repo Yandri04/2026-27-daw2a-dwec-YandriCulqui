@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ej5</title>
+  </head>
+  <body>
+    <h1>
+      SOY LA PAGINA 1 Y CON ESTE BOTON TE CARGO OTRA PAGINA Y AUN SIGO DISPNIBLE
+    </h1>
+    <button id="a">assing</button>
+    <h1>
+      SOY LA PAGINA 1 Y CON ESTE BOTON TE CARGO OTRA PAGINA PERO NO ME ENCUENTRO
+      DISPONIBLE PARA VOLVER
+    </h1>
+    <button id="b">replace</button>
+    <script>
+        // la diferencia principal que encuentro es que assign almacena y nos permite volver a la pagina anterior como, guardando un hsitorial de "De pagina a te redirijo a pagina b y puedes volver a pagina a"
+        // Pero con replace, esto no te permite debido a que te reemplaza a a pagina que te redirige pero no te permite volver a al anterior
+      const boton1 = document.getElementById("a");
+      boton1.addEventListener("click", () => {
+        location.assign("https://www.google.com");
+      });
+      const boton2 = document.getElementById("b");
+      boton2.addEventListener("click", () => {
+        location.replace("https://www.google.com");
+      });
+    </script>
+  </body>
+</html>
