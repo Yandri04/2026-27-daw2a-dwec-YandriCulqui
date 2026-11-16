@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>act1</title>
+  </head>
+  <body>
+    <h1>Prueba de keyCode, charCode, key y which</h1>
+    <script>
+      document.addEventListener("keydown", (event) => {
+        event.preventDefault();
+        console.log("Tecla presionada (which):", event.which);
+        console.log("Tecla presionada (key):", event.key);
+        console.log("Tecla presionada (keyCode):", event.keyCode);
+        console.log("Tecla presionada (charCode):", event.charCode);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>act3</title>
+  </head>
+  <body>
+    Pruebas de clientX-Y screenX-Y pageX-Y
+    <script>
+      document.addEventListener("click", (event) => {
+        event.preventDefault();
+        console.log("Click X (clientX):", event.clientX);
+        console.log("Click Y (clientY):", event.clientY);
+        console.log("Screen X (screenX):", event.screenX);
+        console.log("Screen Y (screenY):", event.screenY);
+        console.log("Page X  (pageX):", event.pageX);
+        console.log("Page Y  (pageY):", event.pageY);
+        console.log("\n");
+      });
+    </script>
+  </body>
+</html>
