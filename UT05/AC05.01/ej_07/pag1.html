@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ej07</title>
+  </head>
+  <body>
+    <fieldset>
+      <legend>Productos</legend>
+      <form action="">
+        <table>
+          <tr>
+            <td><label for="cP1" class="lbs">IE para Windows</label></td>
+            <td><input type="checkbox" id="cP1" class="checkes" /></td>
+          </tr>
+          <tr>
+            <td><label for="cP2" class="lbs">IE para Mac</label></td>
+            <td><input type="checkbox" id="cP2" class="checkes" /></td>
+          </tr>
+          <tr>
+            <td><label for="cP3" class="lbs">FF para Windows</label></td>
+            <td><input type="checkbox" id="cP3" class="checkes" /></td>
+          </tr>
+          <tr>
+            <td><label for="cP4" class="lbs">FF para Mac</label></td>
+            <td><input type="checkbox" id="cP4" class="checkes" /></td>
+          </tr>
+          <tr>
+            <td><label for="cP5" class="lbs">FF para Linux</label></td>
+            <td><input type="checkbox" id="cP5" class="checkes" /></td>
+          </tr>
+        </table>
+        <br />
+        <br />
+        <table>
+          <tr>
+            <td>
+              <input
+                type="checkbox"
+                id="cS1"
+                class="sistemas"
+                value="windows"
+              />
+            </td>
+            <td><label for="cS1" class="lbsSis">Windows</label></td>
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" id="cS2" class="sistemas" value="mac" />
+            </td>
+            <td><label for="cS2" class="lbsSis">Mac</label></td>
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" id="cS3" class="sistemas" value="linux" />
+            </td>
+            <td><label for="cS3" class="lbsSis">Linux</label></td>
+          </tr>
+        </table>
+        <button id="enviar">Pulsa</button>
+        <p id="resultado"></p>
+      </form>
+    </fieldset>
+
+    <script src="script.js"></script>
+  </body>
+</html>
