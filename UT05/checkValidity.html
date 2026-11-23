@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ejemplo de checkValidity()</title>
+
+  </head>
+  <body>
+    <h2>Prueba de checkValidity()</h2>
+
+    <!-- novalidate evita que el navegador muestre sus globos por defecto -->
+    <form id="miFormulario" novalidate>
+      <!-- Validación por TYPE y REQUIRED -->
+      <div class="campo">
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" required />
+        <div id="error-email" class="mensaje"></div>
+      </div>
+
+      <!-- Validación por PATTERN (3 letras seguidas de 3 números) -->
+      <div class="campo">
+        <label for="codigo">Código de producto (ej. ABC123):</label>
+        <input type="text" id="codigo" pattern="[A-Z]{3}[0-9]{3}" required placeholder="ABC123" />
+        <div id="error-codigo" class="mensaje"></div>
+      </div>
+
+      <button type="submit">Comprobar formulario</button>
+    </form>
+
+    <script>
+      const form = document.getElementById('miFormulario');
+      const emailInput = document.getElementById('email');
+      const codigoInput = document.getElementById('codigo');
+
+      // Función reutilizable para validar un input individual
+      function validarCampo(input, idMensaje, textoError) {
+        const contenedorError = document.getElementById(idMensaje);
+
+        if (input.checkValidity()) {
+          input.classList.remove('invalido');
+          input.classList.add('valido');
+          contenedorError.textContent = '';
+        } else {
+          input.classList.remove('valido');
+          input.classList.add('invalido');
+          contenedorError.textContent = textoError;
+        }
+      }
+
+      // Validar mientras el usuario escribe
+      emailInput.addEventListener('input', () => {
+        validarCampo(emailInput, 'error-email', 'Introduce un correo válido.');
+      });
+
+      codigoInput.addEventListener('input', () => {
+        validarCampo(codigoInput, 'error-codigo', 'Debe tener 3 letras mayúsculas y 3 números (ej. ABC123).');
+      });
+
+      // Validar todo el formulario al intentar enviarlo
+      form.addEventListener('submit', (evento) => {
+        evento.preventDefault(); // Evita el envío real para ver el resultado
+
+        // checkValidity() también funciona sobre el <form> entero
+        if (form.checkValidity()) {
+          alert('¡Todo correcto! Formulario listo para enviar.');
+        } else {
+          alert('Hay errores en el formulario. Revisa los campos en rojo.');
+          // Forzamos la visualización de errores si el usuario pulsó enviar sin escribir nada
+          validarCampo(emailInput, 'error-email', 'Introduce un correo válido.');
+          validarCampo(codigoInput, 'error-codigo', 'Debe tener 3 letras mayúsculas y 3 números (ej. ABC123).');
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ej02</title>
+  </head>
+  <body>
+    <fieldset>
+      <legend>Validaciones</legend>
+      <form action="" id="formulario" name="formulario">
+        <label for="correo">Ingrese su correo</label>
+        <br />
+        <input type="email" id="correo" required placeholder="prueba@gmail.com" />
+        <br />
+        <br />
+        <label for="telefono">Ingrese su telefono</label>
+        <br />
+        <input type="tel" id="telefono" pattern="[0-9]{9}" required placeholder="645555555" />
+        <br />
+        <br />
+        <label for="dni">DNI:</label>
+        <br />
+        <input
+          type="text"
+          id="dni"
+          pattern="[0-9]{8}[A-Z]{1}"
+          required
+          placeholder="12345678Z"
+        />
+        <br />
+        <br />
+        <label for="cp">Codigo Postal:</label>
+        <br />
+        <input
+          type="text"
+          id="cp"
+          pattern="[0-9]{5}"
+          required
+          placeholder="3150"
+        />
+        <br />
+        <br />
+        <label for="fecha">Fecha:</label>
+        <br />
+        <input type="date" id="fecha" required />
+        <br />
+        <br />
+        <input
+          type="checkbox"
+          name="terminoYCondiciones"
+          id="terminoYCondiciones"
+          disabled
+          required
+        />
+        <label for="terminoYCondiciones"
+          >Aceptas los Terminos y Condiciones</label
+        >
+        <br />
+        <br />
+        <button type="submit">Enviar</button>
+      </form>
+    </fieldset>
+  </body>
+  <script src="script.js"></script>
+</html>

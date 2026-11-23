@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ej01</title>
+  </head>
+  <body>
+    <fieldset>
+      <legend>Productos</legend>
+      <form action="pag3.html" onsubmit="return validar();" id="formulario">
+        <table>
+          <tr>
+            <th><label for="cP1">IE para Windows</label></th>
+            <th>
+              <input
+                type="checkbox"
+                id="cP1"
+                name="productos"
+                value="IE_Windows"
+                class="checkes"
+              />
+            </th>
+          </tr>
+          <tr>
+            <th><label for="cP2">IE para Mac</label></th>
+            <th>
+              <input
+                type="checkbox"
+                id="cP2"
+                name="productos"
+                value="IE_Mac"
+                class="checkes"
+              />
+            </th>
+          </tr>
+          <tr>
+            <th><label for="cP3">FF para Windows</label></th>
+            <th>
+              <input
+                type="checkbox"
+                id="cP3"
+                name="productos"
+                value="FF_Windows"
+                class="checkes"
+              />
+            </th>
+          </tr>
+          <tr>
+            <th><label for="cP4">FF para Mac</label></th>
+            <th>
+              <input
+                type="checkbox"
+                id="cP4"
+                name="productos"
+                value="FF_Mac"
+                class="checkes"
+              />
+            </th>
+          </tr>
+          <tr>
+            <th><label for="cP5">FF para Linux</label></th>
+            <th>
+              <input
+                type="checkbox"
+                id="cP5"
+                name="productos"
+                value="FF_Linux"
+                class="checkes"
+              />
+            </th>
+          </tr>
+        </table>
+        <button type="submit" id="enviar">Pulsa</button>
+      </form>
+    </fieldset>
+    <script src="script.js"></script>
+  </body>
+</html>
