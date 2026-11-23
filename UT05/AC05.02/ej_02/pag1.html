@@ -8,15 +8,29 @@
   <body>
     <fieldset>
       <legend>Validaciones</legend>
-      <form action="" id="formulario" name="formulario">
+      <form action="" id="formulario" name="formulario" oninvalid="">
         <label for="correo">Ingrese su correo</label>
         <br />
-        <input type="email" id="correo" required placeholder="prueba@gmail.com" />
+        <input
+          type="email"
+          id="correo"
+          required
+          placeholder="prueba@gmail.com"
+        />
+        <div id="error-email" class="mensaje"></div>
         <br />
         <br />
         <label for="telefono">Ingrese su telefono</label>
         <br />
-        <input type="tel" id="telefono" pattern="[0-9]{9}" required placeholder="645555555" />
+        <input
+          type="tel"
+          id="telefono"
+          pattern="[0-9]{9}"
+          required
+          placeholder="645555555"
+        />
+        <div id="error-tlf" class="mensaje"></div>
+
         <br />
         <br />
         <label for="dni">DNI:</label>
@@ -28,6 +42,8 @@
           required
           placeholder="12345678Z"
         />
+        <div id="error-dni" class="mensaje"></div>
+
         <br />
         <br />
         <label for="cp">Codigo Postal:</label>
@@ -39,6 +55,8 @@
           required
           placeholder="3150"
         />
+        <div id="error-cp" class="mensaje"></div>
+
         <br />
         <br />
         <label for="fecha">Fecha:</label>
@@ -53,6 +71,8 @@
           disabled
           required
         />
+        <div id="error-fecha" class="mensaje"></div>
+
         <label for="terminoYCondiciones"
           >Aceptas los Terminos y Condiciones</label
         >
