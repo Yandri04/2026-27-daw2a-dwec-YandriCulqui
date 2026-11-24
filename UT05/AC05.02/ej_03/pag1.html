@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ej_03</title>
+  </head>
+  <body>
+    <fieldset>
+      <legend>EJ3</legend>
+      <form action="" id="miFormulario" novalidate>
+        <label for="iban">Ingrese su IBAN</label>
+        <br />
+        <input
+          type="text"
+          id="iban"
+          required
+          placeholder="EJ. ES91-2100-0418-4502-0005-1332"
+        />
+        <br />
+        <br />
+        <label for="cif">Ingrese su cif</label>
+        <br />
+        <input type="text" id="cif" required placeholder="Ej. B12345678" />
+        <br />
+        <br />
+        <label for="transferencia"
+          >Ingrese al destinatario de la transferencia</label
+        >
+        <br />
+        <input type="text" id="transferencia" required />
+        <br />
+        <br />
+        <label for="descripción" hidden
+          >Ingrese la descripción de la transferencia</label
+        >
+        <br />
+        <input type="text" id="descripción" required hidden />
+        <br />
+        <br />
+        <button type="submit" id="enviar">Enviar</button>
+      </form>
+    </fieldset>
+  </body>
+</html>
