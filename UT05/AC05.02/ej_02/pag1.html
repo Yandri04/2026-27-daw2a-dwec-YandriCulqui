@@ -8,7 +8,7 @@
   <body>
     <fieldset>
       <legend>Validaciones</legend>
-      <form action="" id="formulario" name="formulario" oninvalid="">
+      <form action="" id="miFormulario" name="formulario" novalidate>
         <label for="correo">Ingrese su correo</label>
         <br />
         <input
@@ -62,6 +62,7 @@
         <label for="fecha">Fecha:</label>
         <br />
         <input type="date" id="fecha" required />
+        <div id="error-fecha" class="mensaje"></div>
         <br />
         <br />
         <input
@@ -71,14 +72,15 @@
           disabled
           required
         />
-        <div id="error-fecha" class="mensaje"></div>
-
         <label for="terminoYCondiciones"
           >Aceptas los Terminos y Condiciones</label
         >
+        <div id="error-tyc" class="mensaje"></div>
+
         <br />
         <br />
-        <button type="submit">Enviar</button>
+        <button type="submit" id="enviar">Enviar</button>
+        <p id="resultado"></p>
       </form>
     </fieldset>
   </body>
