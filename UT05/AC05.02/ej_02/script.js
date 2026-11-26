@@ -10,15 +10,12 @@ let error = "";
 
 function validarEmail() {
   const valor = email.value.trim();
-  const exRegularValidar = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
   if (!valor) {
     error = "El correo es obligatorio";
     return false;
-  }
-
-  if (!exRegularValidar.test(valor)) {
-    error = "El correo no tiene el formato correcto";
+  } else if (!email.checkValidity()) {
+    error = "El formato del correo no es válido";
     return false;
   }
 
@@ -27,7 +24,7 @@ function validarEmail() {
 }
 
 function validarDni() {
-  const valor = dni.value.trim();
+  let valor = dni.value.trim();
   const xRegularValidar = /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKE]$/;
 
   if (!valor) {
@@ -39,8 +36,8 @@ function validarDni() {
   }
 
   const letras = "TRWAGMYFPDXBNJZSQVHLCKE";
-  const numero = Number(valor.slice(0, -1));
-  const letraIntroducida = valor.slice(-1);
+  const numero = Number(valor.substring(0, 8));
+  const letraIntroducida = valor.substring(8);
   const letraCorrecta = letras[numero % 23];
 
   if (letraIntroducida !== letraCorrecta) {
@@ -63,64 +60,42 @@ function validarTelefono() {
     return false;
   }
   error = "";
-  return true;
+  return telefono.checkValidity();
 }
 
 function validarCodigoPostal() {
   const valor = cp.value.trim();
   const exRegularValidar = /^[0-9]{5}$/;
-
   if (!valor) {
-    error = "EL CODIGO POSTAL ES OBLIGATORIO";
+    error = "EL codigo postal ES OBLIGATORIO";
     return false;
   } else if (!exRegularValidar.test(valor)) {
-    error = "El CODIGO POSTAL DEBE TENER 5 DIGITOS";
+    error = "El codigo postal tiene que se de 5 numeros";
     return false;
   }
   error = "";
-  return true;
+  return cp.checkValidity();
 }
 
 function validarFecha() {
-  const valor = fecha.value.trim();
-  const exRegularValidar =
-    /^([0-9]{4})-(0?[1-9]|1[0-2])-(0?[1-9]|[12][0-9]|3[01])$/;
-
-  if (!valor) {
-    error = "LA FECHA ES OBLIGATORIA";
-    return false;
-  } else if (!exRegularValidar.test(valor)) {
-    error = "LA FECHA ES INCORRECTA";
+  if (!fecha.checkValidity()) {
+    error = "La fecha es obligatoria o no es válida";
     return false;
   }
-
-  const aValor = valor.split("-");
-  let anio = parseInt(aValor[0]);
-  let mes = parseInt(aValor[1]) - 1;
-  let dia = parseInt(aValor[2]);
-
-  const fechaObj = new Date(anio, mes, dia);
-
-  if (
-    fechaObj.getFullYear() !== anio ||
-    fechaObj.getMonth() !== mes ||
-    fechaObj.getDate() !== dia
-  ) {
-    error = "LA FECHA NO EXISTE EN EL CALENDARIO";
-    return false;
-  }
-
   error = "";
-  return true;
+  return fecha.checkValidity();
 }
+
 function validarTyc() {
   if (!tyc.checked) {
     error = "Debes aceptar los Términos y Condiciones";
     return false;
   }
+
   error = "";
-  return true;
+  return tyc.checkValidity();
 }
+
 function comprobarCamposRellenos() {
   let todosRellenos = true;
 
@@ -137,6 +112,7 @@ function comprobarCamposRellenos() {
     tyc.checked = false;
   }
 }
+
 function mostrarError(idMensaje, esValido) {
   const contenedorError = document.getElementById(idMensaje);
 
@@ -148,6 +124,7 @@ function mostrarError(idMensaje, esValido) {
 
   return esValido;
 }
+
 
 valores.forEach((campo) => {
   campo.addEventListener("input", comprobarCamposRellenos);
