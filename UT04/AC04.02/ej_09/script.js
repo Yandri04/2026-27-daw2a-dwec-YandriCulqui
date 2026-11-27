@@ -25,20 +25,12 @@ function primera() {
   imgVisor.src = aImagenes[iActual];
 }
 function siguiente() {
-  if (iActual < aImagenes.length - 1) {
-    iActual += 1;
-    imgVisor.src = aImagenes[iActual];
-  } else {
-    primera();
-  }
+  iActual = (iActual + 1) % aImagenes.length;
+  imgVisor.src = aImagenes[iActual];
 }
 function anterior() {
-  if (iActual > 0) {
-    iActual -= 1;
-    imgVisor.src = aImagenes[iActual];
-  } else {
-    ultima();
-  }
+  iActual = (iActual - 1 + aImagenes.length) % aImagenes.length;
+  imgVisor.src = aImagenes[iActual];
 }
 function ultima() {
   iActual = aImagenes.length - 1;
