@@ -20,6 +20,21 @@ function validarIban() {
 function validarCif() {
   let valor = cif.value.trim();
   let regex = /^[ABCDEFGHJNPQRSUVW]{1}\d{8}$/;
+  if (!valor) {
+    error = "El CIF NO PUEDE ESTAR VACIO";
+    return false;
+  } else if (!regex.test(valor)) {
+    error = "El CIF  NO CUMPLE CON EL FORMATO";
+    return false;
+  }
+  const letras = "ABCDEFGHJNPQRSUVW";
+  let sumaPares;
+  let sumaImpares;
+  let total;
+  let letraObtenida = valor.substring(0);
+  let nProvincialObtenido = valor.substring(1, 3);
+  let nComprobar = valor.substring(1, 8);
+  let numeroControl = valor.substring(8);
 
   const codigosProvinciales = [
     "01",
@@ -75,20 +90,40 @@ function validarCif() {
     "51",
     "52",
   ];
-  const caracteresControl = [
-    "01",
-    "02",
-    "03",
-    "04",
-    "05",
-    "06",
-    "07",
-    "08",
-    "09",
-  ];
-  let sumaPares;
-  let sumaImpares;
-  let total;
+  codigosProvinciales.forEach((e) => {
+    if (e === nProvincialObtenido) {
+      const caracteresControl = [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+      ];
+      let comparador = nComprobar.split("").map(Number);
+
+      for (let index = 0; index < comparador.length; index++) {
+        if (index % 2 === 0) {
+          sumaPares += comparador[index];
+        } else {
+          sumaImpares += comparador[index];
+        }
+      }
+      total = sumaPares + sumaImpares;
+      let nControl = 10 - (total % 10);
+      caracteresControl.forEach((element) => {
+        if (element === nControl) {
+          return true;
+        }
+      });
+    } else {
+      return false;
+    }
+  });
+
   // Dígito de control: Se toma la última cifra de C (unidades) y
   // se resta de 10 (10 - (C % 10)). Si la última cifra de C es 0,
   // el dígito de control es 0.
