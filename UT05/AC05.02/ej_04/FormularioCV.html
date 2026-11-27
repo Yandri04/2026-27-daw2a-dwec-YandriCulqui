@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Tema 5</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+      /*
+ * Un aspecto que es importante resaltar, es que por defecto todos los campos son validos 
+ – como es de esperarse –, 
+ pero si un campo es requerido, entonces ocurre lo contrario, este por defecto será inválido
+ */
+      input:required:invalid {
+        border: 1px solid red;
+      }
+
+      /* Estilo por defecto */
+      input:required:valid {
+        border: 1px solid green;
+      }
+    </style>
+
+	<script src="script.js" defer></script>
+  </head>
+  <body>
+    <form id="form_cv" method="post" action="">
+      <hr />
+      <table>
+        <tr>
+          <td>Nombre*: <input type="text" id="nombre" /><br /></td>
+        </tr>
+        <tr>
+          <td>Apellidos*: <input type="text" id="apellidos" /><br /></td>
+        </tr>
+        <tr>
+          <td>Fecha de Nacimiento*: <input type="text" id="fecha" /><br /></td>
+        </tr>
+        <tr>
+          <td>Teléfono Móvil*: <input type="text" id="telefono" /><br /></td>
+        </tr>
+        <tr>
+          <td>Incluir CV*: <input type="file" id="cv" /><br /></td>
+        </tr>
+        <tr>
+          <td>
+            Titulación*
+            <select id="titulacion">
+              <option value="" selected>--Seleccione Titulación--</option>
+              <option value="Técnico Superior FP">Técnico Superior FP</option>
+              <option value="Diplomado">Diplomado</option>
+              <option value="Licenciado">Licenciado</option>
+              <option value="Licenciado">Grado</option>
+            </select>
+          </td>
+        </tr>
+
+        <tr>
+          <td align="left">Clave*: <input type="text" id="clave" /><br /></td>
+        </tr>
+        <tr>
+          <td align="left">
+            Acepto Términos y Condiciones de uso*:
+            <input type="checkbox" id="terminos" /><br />
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align: center">
+            <input type="submit" id="envio" value="Enviar" />
+          </td>
+        </tr>
+      </table>
+    </form>
+    <hr />
+  </body>
+</html>
