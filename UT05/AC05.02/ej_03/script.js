@@ -17,119 +17,89 @@ function validarIban() {
   }
   return true;
 }
+
 function validarCif() {
-  let valor = cif.value.trim();
-  let regex = /^[ABCDEFGHJNPQRSUVW]{1}\d{8}$/;
+  let valor = cif.value.trim().toUpperCase();
+  let regex = /^[ABCDEFGHJNPQRSUVW]\d{8}$/;
+
   if (!valor) {
-    error = "El CIF NO PUEDE ESTAR VACIO";
-    return false;
-  } else if (!regex.test(valor)) {
-    error = "El CIF  NO CUMPLE CON EL FORMATO";
+    error = "El CIF NO PUEDE ESTAR VACÍO";
     return false;
   }
-  const letras = "ABCDEFGHJNPQRSUVW";
-  let sumaPares;
-  let sumaImpares;
-  let total;
-  let letraObtenida = valor.substring(0);
-  let nProvincialObtenido = valor.substring(1, 3);
-  let nComprobar = valor.substring(1, 8);
-  let numeroControl = valor.substring(8);
+  if (!regex.test(valor)) {
+    error = "El CIF NO CUMPLE CON EL FORMATO";
+    return false;
+  }
 
-  const codigosProvinciales = [
-    "01",
-    "02",
-    "03",
-    "04",
-    "05",
-    "06",
-    "07",
-    "08",
-    "09",
-    "10",
-    "11",
-    "12",
-    "13",
-    "14",
-    "15",
-    "16",
-    "17",
-    "18",
-    "19",
-    "20",
-    "21",
-    "22",
-    "23",
-    "24",
-    "25",
-    "26",
-    "27",
-    "28",
-    "29",
-    "30",
-    "31",
-    "32",
-    "33",
-    "34",
-    "35",
-    "36",
-    "37",
-    "38",
-    "39",
-    "40",
-    "41",
-    "42",
-    "43",
-    "44",
-    "45",
-    "46",
-    "47",
-    "48",
-    "49",
-    "50",
-    "51",
-    "52",
-  ];
-  codigosProvinciales.forEach((e) => {
-    if (e === nProvincialObtenido) {
-      const caracteresControl = [
-        "01",
-        "02",
-        "03",
-        "04",
-        "05",
-        "06",
-        "07",
-        "08",
-        "09",
-      ];
-      let comparador = nComprobar.split("").map(Number);
+  let provincia = Number(valor.substring(1, 3));
+  if (provincia < 1 || provincia > 52) {
+    error = "CÓDIGO PROVINCIAL INCORRECTO";
+    return false;
+  }
 
-      for (let index = 0; index < comparador.length; index++) {
-        if (index % 2 === 0) {
-          sumaPares += comparador[index];
-        } else {
-          sumaImpares += comparador[index];
-        }
-      }
-      total = sumaPares + sumaImpares;
-      let nControl = 10 - (total % 10);
-      caracteresControl.forEach((element) => {
-        if (element === nControl) {
-          return true;
-        }
-      });
-    } else {
-      return false;
+  let numeros = valor.substring(1, 8);
+  let controlRecibido = Number(valor[8]);
+  let suma = 0;
+
+  for (let i = 0; i < numeros.length; i++) {
+    let n = Number(numeros[i]);
+
+    if (i % 2 === 0) {
+      n = n * 2;
+      if (n > 9) n = n - 9;
     }
-  });
 
-  // Dígito de control: Se toma la última cifra de C (unidades) y
-  // se resta de 10 (10 - (C % 10)). Si la última cifra de C es 0,
-  // el dígito de control es 0.
+    suma += n;
+  }
+
+  let controlCalculado = (10 - (suma % 10)) % 1;
+  if (controlRecibido === controlCalculado) {
+    return cif.checkValidity();
+  } else {
+    error = "EL DÍGITO DE CONTROL NO COINCIDE";
+    return false;
+  }
 }
-function validarTranferencia() {}
-function validarDescripción() {}
+
+function validarDestionarioTransferencia() {
+  let valor = txtTranferencia.value.trim();
+  let regex = /^@/;
+
+  if (!valor) {
+    error = "EL DESTINATARIO NO PUEDE ESTAR VACÍO";
+    return false;
+  } else if (!regex.test(valor)) {
+    error = "El destinatario debe empezar por @";
+    return false;
+  } else if (valor.length < 6) {
+    error = "El destinatario debe tener al menos 6 caracteres";
+    return false;
+  }
+
+  return txtTranferencia.checkValidity();
+}
+
+function validarDescripción() {
+  let valor = txtDescripción.value.trim();
+  if (!valor) {
+    error = "El DESTIONATARIO NO PUEDE ESTAR VACÍO";
+    return false;
+  }
+  return txtDescripción.checkValidity();
+}
+
+function comprobarCamposRellenos() {
+  let esValido = validarDestionarioTransferencia();
+  const lblDescripción = document.getElementById("label-descripción");
+  txtDescripción.hidden = !esValido;
+  lblDescripción.hidden = !esValido;
+
+  if (!esValido) {
+    document.getElementById("error-descripción").textContent = "";
+  }
+}
+
+txtTranferencia.addEventListener("input", comprobarCamposRellenos);
 
 function mostrarError(idMensaje, esValido) {
   const contenedorError = document.getElementById(idMensaje);
@@ -144,11 +114,12 @@ function mostrarError(idMensaje, esValido) {
 }
 
 form.addEventListener("submit", (event) => {
+  event.preventDefault();
   const cuentaIbanOk = mostrarError("error-iban", validarIban());
   const cifOk = mostrarError("error-cif", validarCif());
   const txtTranferenciaOk = mostrarError(
     "error-transferencia",
-    validarTranferencia(),
+    validarDestionarioTransferencia(),
   );
   const txtDescripciónOk = mostrarError(
     "error-descripción",
@@ -157,11 +128,9 @@ form.addEventListener("submit", (event) => {
 
   const resultado = document.getElementById("resultado");
 
-  if (!cuentaIbanOk || !cifOk || !txtTranferenciaOk) {
-    event.preventDefault();
+  if (!cuentaIbanOk || !cifOk || !txtTranferenciaOk || !txtDescripciónOk) {
     resultado.textContent = "ERROR EN ALGUN CAMPO DEL FORMULARIO";
   } else {
-    event.preventDefault();
     resultado.textContent = "FORMULARO ENVIADO CON EXITO";
   }
 });
